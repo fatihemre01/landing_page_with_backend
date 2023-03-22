@@ -1,9 +1,10 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const User = require("./models/User");
 
 mongoose
-  .connect("mongodb://localhost:27017/Deneme")
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("Connected"))
   .catch(() => console.log("Not Connected"));
 
@@ -20,7 +21,8 @@ app.get("/", (req, res) => {
 app.post("/submit", async (req, res) => {
   const newUser = new User(req.body);
   const user = await newUser.save();
-  res.send(user);
+  res.redirect("/");
+  console.log("Saved to db:", user);
 });
 
 app.listen(3000, () => console.log("Listenin on port 3000"));
