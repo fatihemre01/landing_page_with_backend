@@ -1,3 +1,11 @@
-Run this command to start: #npm run start
+-first, install dependencies:
 
-You can access to website from "localhost:3000"
+# npm install
+
+-run the project by:
+
+# npm run start
+
+You can access to website from:
+
+# http://localhost:3000
